@@ -3,53 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的GitHub项目</title>
+    <title>我的第一个GitHub网站</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        .container {
             text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
             background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
+            padding: 60px 40px;
             border-radius: 20px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
         }
+        
         h1 {
             font-size: 2.5em;
             margin-bottom: 20px;
+            font-weight: 300;
         }
+        
+        .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-2px);
+        }
+        
         .github-link {
             display: inline-block;
-            margin-top: 20px;
-            padding: 12px 24px;
+            margin-top: 30px;
+            padding: 15px 30px;
             background: #24292e;
             color: white;
             text-decoration: none;
-            border-radius: 6px;
-            transition: transform 0.3s ease;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
+        
         .github-link:hover {
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>欢迎来到我的GitHub项目</h1>
-        <p>这是一个可以在线访问的GitHub仓库示例</p>
-        <p>请将这个项目推送到GitHub，然后通过GitHub Pages启用在线访问</p>
-        <a href="https://github.com" class="github-link">访问GitHub</a>
+        <h1>🎉 欢迎来到我的GitHub网站</h1>
+        <p class="subtitle">这是一个简单但美观的网页，已成功部署到GitHub Pages</p>
+        
+        <div class="feature">
+            <h3>✨ 特点</h3>
+            <p>响应式设计，适配所有设备</p>
+        </div>
+        
+        <div class="feature">
+            <h3>🚀 技术</h3>
+            <p>纯HTML/CSS，无需复杂构建</p>
+        </div>
+        
+        <div class="feature">
+            <h3>🎯 部署</h3>
+            <p>通过GitHub Pages免费托管</p>
+        </div>
+        
+        <a href="https://github.com" class="github-link">查看我的GitHub</a>
     </div>
 </body>
 </html>
