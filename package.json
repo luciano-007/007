@@ -1,0 +1,26 @@
+{
+  "name": "my-online-github-project",
+  "version": "1.0.0",
+  "description": "一个可以在线访问的GitHub仓库示例项目",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000 || python -m SimpleHTTPServer 8000",
+    "dev": "python3 -m http.server 8080",
+    "build": "echo '这是一个静态网站，无需构建'"
+  },
+  "keywords": [
+    "github",
+    "pages",
+    "static",
+    "website",
+    "html",
+    "css"
+  ],
+  "author": "你的姓名",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/你的用户名/你的仓库名.git"
+  },
+  "homepage": "https://你的用户名.github.io/你的仓库名/"
+}
