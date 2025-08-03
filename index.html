@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欢迎来到我的空间</title>
+    <title>我的数字空间</title>
     <style>
         * {
             margin: 0;
@@ -12,302 +12,388 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%);
-            color: #c9d1d9;
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background: #ffffff;
+            color: #24292e;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        .hero-section {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: radial-gradient(circle at 50% 50%, rgba(88, 166, 255, 0.1) 0%, transparent 50%),
-                        linear-gradient(135deg, #0d1117 0%, #161b22 100%);
-        }
-
-        .container {
+        .header {
+            background: linear-gradient(135deg, #0366d6, #2188ff);
+            color: white;
+            padding: 80px 0;
             text-align: center;
-            max-width: 800px;
-            padding: 0 20px;
             position: relative;
-            z-index: 2;
         }
 
-        .logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 40px;
-            background: linear-gradient(135deg, #58a6ff, #79c0ff);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            font-weight: bold;
-            color: #0d1117;
-            box-shadow: 0 8px 32px rgba(88, 166, 255, 0.3);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #58a6ff, #79c0ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.2;
-        }
-
-        .subtitle {
-            font-size: 1.5rem;
-            color: #8b949e;
-            margin-bottom: 50px;
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 60px 0;
-        }
-
-        .feature-card {
-            background: rgba(33, 38, 45, 0.6);
-            border: 1px solid rgba(88, 166, 255, 0.2);
-            border-radius: 12px;
-            padding: 40px 30px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
+        .header::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #58a6ff, #79c0ff);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(88, 166, 255, 0.4);
-            box-shadow: 0 12px 40px rgba(88, 166, 255, 0.2);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
         }
 
-        .feature-card:hover::before {
-            transform: scaleX(1);
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            display: block;
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
         }
 
-        .feature-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #f0f6fc;
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-weight: 300;
         }
 
-        .feature-description {
-            color: #8b949e;
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        .cta-section {
-            margin-top: 60px;
+        .hero-description {
+            font-size: 1.125rem;
+            opacity: 0.8;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 16px 32px;
-            background: linear-gradient(135deg, #238636, #2ea043);
+            background: rgba(255, 255, 255, 0.2);
             color: white;
-            text-decoration: none;
+            padding: 16px 32px;
             border-radius: 8px;
+            text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.125rem;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(35, 134, 54, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
         }
 
         .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(35, 134, 54, 0.4);
-            background: linear-gradient(135deg, #2ea043, #3fb950);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
+        .main-content {
+            padding: 80px 0;
+            background: #fafbfc;
         }
 
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(88, 166, 255, 0.5);
-            border-radius: 50%;
-            animation: particle-float 6s ease-in-out infinite;
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #24292e;
         }
 
-        @keyframes particle-float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
         }
 
-        .footer {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #6e7681;
-            font-size: 0.9rem;
+        .feature {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e1e4e8;
+        }
+
+        .feature:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0366d6, #2188ff);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #24292e;
+        }
+
+        .feature p {
+            color: #586069;
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        .stats {
+            background: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0366d6;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.125rem;
+            color: #586069;
+            font-weight: 500;
+        }
+
+        .footer-section {
+            background: #24292e;
+            color: #c9d1d9;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-size: 1.125rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #79b8ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #0366d6;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            opacity: 0.6;
+            font-size: 0.875rem;
         }
 
         @media (max-width: 768px) {
-            h1 {
+            .header {
+                padding: 60px 0;
+            }
+
+            .hero-title {
                 font-size: 2.5rem;
             }
-            
-            .subtitle {
-                font-size: 1.2rem;
+
+            .hero-subtitle {
+                font-size: 1.125rem;
             }
-            
-            .features-grid {
+
+            .features {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 1.5rem;
             }
-            
-            .feature-card {
-                padding: 30px 20px;
+
+            .feature {
+                padding: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="hero-section">
-        <div class="particles" id="particles"></div>
-        
+    <header class="header">
         <div class="container">
-            <div class="logo">JS</div>
-            
-            <h1>欢迎来到我的数字空间</h1>
-            <p class="subtitle">
-                探索、创造、分享<br>
-                在这里，每一行代码都讲述一个故事
-            </p>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">🚀</span>
-                    <h3 class="feature-title">快速响应</h3>
-                    <p class="feature-description">优化的性能体验，毫秒级响应，让每一次交互都流畅自然</p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon">🎨</span>
-                    <h3 class="feature-title">优雅设计</h3>
-                    <p class="feature-description">现代化的界面设计，精心打磨的细节，带来视觉与体验的双重享受</p>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon">🔧</span>
-                    <h3 class="feature-title">持续创新</h3>
-                    <p class="feature-description">不断学习，持续改进，用技术创造更美好的数字未来</p>
-                </div>
-            </div>
-
-            <div class="cta-section">
-                <button class="cta-button" onclick="showWelcome()">
-                    开始探索
-                </button>
-            </div>
-
-            <div class="footer">
-                © 2025 我的数字空间 | 用心构建，用爱分享
+            <div class="hero-content">
+                <h1 class="hero-title">欢迎来到我的数字空间</h1>
+                <p class="hero-subtitle">探索、创造、分享</p>
+                <p class="hero-description">
+                    在这里，每一行代码都讲述一个故事，每一个项目都是一次创新的旅程。
+                    用技术连接世界，用创意点亮未来。
+                </p>
+                <a href="#main" class="cta-button">开始探索</a>
             </div>
         </div>
-    </div>
+    </header>
+
+    <main class="main-content" id="main">
+        <div class="container">
+            <h2 class="section-title">核心特色</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">⚡</div>
+                    <h3>快速响应</h3>
+                    <p>优化的性能体验，毫秒级响应速度，让每一次交互都流畅自然，为用户带来极致的使用体验。</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🎨</div>
+                    <h3>优雅设计</h3>
+                    <p>现代化的界面设计，精心打磨的细节，简洁而不失优雅，带来视觉与体验的双重享受。</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🔧</div>
+                    <h3>持续创新</h3>
+                    <p>不断学习新技术，持续改进产品功能，用创新的思维解决实际问题，创造更美好的数字未来。</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">创意无限</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">用心制作</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">持续在线</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-content">
+                <h3 class="footer-title">感谢您的访问</h3>
+                <p class="footer-text">
+                    感谢您的关注与支持，让我们一起在数字世界中探索无限可能。
+                </p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">关于我</a>
+                    <a href="#" class="footer-link">项目展示</a>
+                    <a href="#" class="footer-link">联系方式</a>
+                </div>
+                <div class="copyright">
+                    © 2025 我的数字空间 | 用心构建，用爱分享
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // 创建粒子效果
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // 欢迎动画
-        function showWelcome() {
-            const button = document.querySelector('.cta-button');
-            button.innerHTML = '欢迎！🎉';
-            button.style.background = 'linear-gradient(135deg, #58a6ff, #79c0ff)';
-            
-            setTimeout(() => {
-                button.innerHTML = '开始探索';
-                button.style.background = 'linear-gradient(135deg, #238636, #2ea043)';
-            }, 2000);
-        }
-
-        // 页面加载完成后创建粒子
-        document.addEventListener('DOMContentLoaded', createParticles);
-
-        // 滚动视差效果
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.hero-section');
-            parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
+
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 添加滚动动画
+        document.querySelectorAll('.feature, .stat').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // 页面加载动画
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
     </script>
 </body>
 </html>
